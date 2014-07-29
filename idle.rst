@@ -4,15 +4,22 @@
 :c:type:`uv_idle_t` --- Idle handle
 ===================================
 
-TODO
+Idle handles will run the given callback once per loop iteration, right
+before the :c:type:`uv_prepare_t` handles.
 
+.. note:: The notable difference with prepare handles is that when there are
+          active idle handles, the loop will perform a zero timeout poll
+          instead of blocking for i/o.
+
+.. warning:: Despite the name, idle handles will get their callbacks
+             called on every loop iteration, not when the loop is "idle".
 
 Data types
 ----------
 
 .. c:type:: uv_idle_t
 
-    idle data type.
+    Idle data type.
 
 .. c:type:: void (*uv_idle_cb)(uv_idle_t* handle)
 
@@ -32,15 +39,15 @@ API
 
 .. c:function:: int uv_idle_init(uv_loop_t*, uv_idle_t* idle)
 
-    TODO
+    Initialize the handle.
 
 .. c:function:: int uv_idle_start(uv_idle_t* idle, uv_idle_cb cb)
 
-    TODO
+    Start the handle with the given callback.
 
 .. c:function:: int uv_idle_stop(uv_idle_t* idle)
 
-    TODO
+    Stop the handle, the callback will no longer be called.
 
 .. note:: The :c:type:`uv_handle_t` API functions also apply.
 
