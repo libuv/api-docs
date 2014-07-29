@@ -12,7 +12,7 @@ You can check a live version of this documentation `here <http://libuv.readthedo
 Building
 --------
 
-This documentation uses `Sphinx <ihttp://sphinx-doc.org/>`_ and can be built
+This documentation uses `Sphinx <http://sphinx-doc.org/>`_ and can be built
 in several formats. Run the following command to check it out:
 
 ::
@@ -32,6 +32,6 @@ Helping
 -------
 
 This is still a work in progress, which means you can help! Find an undocumented
-section, add it and send a pull request. Follow the syntax and structure
-in the existing content.
+section, add it and send a `pull request <https://github.com/libuv/api-docs>`_.
+Follow the syntax and structure in the existing content.
 

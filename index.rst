@@ -11,7 +11,8 @@ Rust language, Luvit, Julia, pyuv, and others.
 
 .. warning::
 
-    This documentation is not yet complete. You can help by sending pull requests!
+    This documentation is not yet complete. You can help by sending
+    `pull requests <https://github.com/libuv/api-docs>`_!
 
 
 Features
