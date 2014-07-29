@@ -12,7 +12,7 @@ You can check a live version of this documentation `here <http://libuv.readthedo
 Building
 --------
 
-This documentation uses `Sphinx <ihttp://sphinx-doc.org/>`_ and can be built
+This documentation uses `Sphinx <http://sphinx-doc.org/>`_ and can be built
 in several formats. Run the following command to check it out:
 
 ::
