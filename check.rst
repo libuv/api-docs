@@ -4,7 +4,8 @@
 :c:type:`uv_check_t` --- Check handle
 =====================================
 
-TODO
+Check handles will run the given callback once per loop iteration, right
+after polling for i/o.
 
 
 Data types
@@ -12,7 +13,7 @@ Data types
 
 .. c:type:: uv_check_t
 
-    check data type.
+    Check data type.
 
 .. c:type:: void (*uv_check_cb)(uv_check_t* handle)
 
@@ -32,15 +33,15 @@ API
 
 .. c:function:: int uv_check_init(uv_loop_t*, uv_check_t* check)
 
-    TODO
+    Initialize the handle.
 
 .. c:function:: int uv_check_start(uv_check_t* check, uv_check_cb cb)
 
-    TODO
+    Start the handle with the given callback.
 
 .. c:function:: int uv_check_stop(uv_check_t* check)
 
-    TODO
+    Stop the handle, the callback will no longer be called.
 
 .. note:: The :c:type:`uv_handle_t` API functions also apply.
 
