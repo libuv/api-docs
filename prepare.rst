@@ -4,7 +4,8 @@
 :c:type:`uv_prepare_t` --- Prepare handle
 =========================================
 
-TODO
+Prepare handles will run the given callback once per loop iteration, right
+before polling for i/o.
 
 
 Data types
@@ -30,17 +31,17 @@ N/A
 API
 ---
 
-.. c:function:: int uv_prepare_init(uv_loop_t*, uv_prepare_t* prepare)
+.. c:function:: int uv_prepare_init(uv_loop_t* loop, uv_prepare_t* prepare)
 
-    TODO
+    Initialize the handle.
 
 .. c:function:: int uv_prepare_start(uv_prepare_t* prepare, uv_prepare_cb cb)
 
-    TODO
+    Start the handle with the given callback.
 
 .. c:function:: int uv_prepare_stop(uv_prepare_t* prepare)
 
-    TODO
+    Stop the handle, the callback will no longer be called.
 
 .. note:: The :c:type:`uv_handle_t` API functions also apply.
 
