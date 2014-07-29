@@ -32,6 +32,6 @@ Helping
 -------
 
 This is still a work in progress, which means you can help! Find an undocumented
-section, add it and send a pull request. Follow the syntax and structure
-in the existing content.
+section, add it and send a `pull request <https://github.com/libuv/api-docs>`_.
+Follow the syntax and structure in the existing content.
 
