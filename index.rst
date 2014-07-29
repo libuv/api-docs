@@ -37,8 +37,8 @@ Downloads
 libuv can be downloaded from `here <http://dist.libuv.org/dist/>`_.
 
 
-Contents
---------
+Documentation
+-------------
 
 .. toctree::
    :maxdepth: 1
