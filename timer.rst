@@ -4,7 +4,7 @@
 :c:type:`uv_timer_t` --- Timer handle
 =====================================
 
-TODO
+Timer handles are used to schedule callbacks to be called in the future.
 
 
 Data types
@@ -32,27 +32,39 @@ API
 
 .. c:function:: int uv_timer_init(uv_loop_t* loop, uv_timer_t* handle)
 
-    TODO
+    Initialize the handle.
 
 .. c:function:: int uv_timer_start(uv_timer_t* handle, uv_timer_cb cb, uint64_t timeout, uint64_t repeat)
 
-    TODO
+    Start the timer. `timeout` and `repeat` are in milliseconds.
+
+    If `timeout` is zero, the callback fires on the next event loop iteration.
+    If `repeat` is non-zero, the callback fires first after `timeout`
+    milliseconds and then repeatedly after `repeat` milliseconds.
 
 .. c:function:: int uv_timer_stop(uv_timer_t* handle)
 
-    TODO
+    Stop the timer, the callback will not be called anymore.
 
 .. c:function:: int uv_timer_again(uv_timer_t* handle)
 
-    TODO
+    Stop the timer, and if it is repeating restart it using the repeat value
+    as the timeout. If the timer has never been started before it returns
+    UV_EINVAL.
 
 .. c:function:: void uv_timer_set_repeat(uv_timer_t* handle, uint64_t repeat)
 
-    TODO
+    Set the repeat value in milliseconds.
+
+    .. note:: If the repeat value is set from a timer callback it
+              does not immediately take effect. If the timer was non-repeating
+              before, it will have been stopped. If it was repeating, then
+              the old repeat value will have been used to schedule the next
+              timeout.
 
 .. c:function:: uint64_t uv_timer_get_repeat(const uv_timer_t* handle)
 
-    TODO
+    Get the timer repeat value.
 
 .. note:: The :c:type:`uv_handle_t` API functions also apply.
 
