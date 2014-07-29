@@ -7,6 +7,7 @@ Welcome to the Official libuv API Documentation Project (TM).
 This is still a work in progress, once these docs are complete the plan is to
 merge them with the main `libuv <http://github.com/joyent/libuv>`_ repository.
 
+You can check a live version of this documentation `here <http://libuv.readthedocs.org>`_.
 
 Building
 --------
