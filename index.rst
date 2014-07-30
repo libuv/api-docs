@@ -51,4 +51,5 @@ Documentation
    prepare
    check
    idle
+   async
 
