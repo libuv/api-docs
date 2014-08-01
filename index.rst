@@ -45,6 +45,7 @@ Documentation
    :maxdepth: 1
 
    design
+   errors
    loop
    handle
    timer
