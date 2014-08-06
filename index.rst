@@ -60,4 +60,5 @@ Documentation
    check
    idle
    async
+   poll
 
