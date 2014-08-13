@@ -62,4 +62,5 @@ Documentation
    idle
    async
    poll
+   signal
 
