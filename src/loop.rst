@@ -28,6 +28,10 @@ Data types
             UV_RUN_NOWAIT
         } uv_run_mode;
 
+.. c:type:: void (*uv_walk_cb)(uv_handle_t* handle, void* arg)
+
+    Type definition for callback passed to :c:func:`uv_walk`.
+
 
 Public members
 ^^^^^^^^^^^^^^
@@ -126,4 +130,9 @@ API
     You won't normally need to call this function unless you have callbacks
     that block the event loop for longer periods of time, where "longer" is
     somewhat subjective but probably on the order of a millisecond or more.
+
+.. c:function:: void uv_walk(uv_loop_t* loop, uv_walk_cb walk_cb, void* arg)
+
+    Walk the list of handles: `walk_cb` will be executed with the given `arg`.
+
 
