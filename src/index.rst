@@ -63,4 +63,18 @@ Documentation
    async
    poll
    signal
+   process
+   stream
+   tcp
+   pipe
+   tty
+   udp
+   fs
+   fs_event
+   fs_poll
+   threadpool
+   dns
+   dll
+   threading
+   misc
 
