@@ -55,6 +55,7 @@ Documentation
    errors
    loop
    handle
+   request
    timer
    prepare
    check
