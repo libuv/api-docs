@@ -71,6 +71,17 @@ Data types
               `nread` == 0 and `addr` != NULL when an empty UDP packet is
               received.
 
+.. c:type:: uv_membership
+
+    Membership type for a multicast address.
+
+    ::
+
+        typedef enum {
+            UV_LEAVE_GROUP = 0,
+            UV_JOIN_GROUP
+        } uv_membership;
+
 
 Public members
 ^^^^^^^^^^^^^^
@@ -142,43 +153,129 @@ API
 
 .. c:function:: int uv_udp_set_membership(uv_udp_t* handle, const char* multicast_addr, const char* interface_addr, uv_membership membership)
 
-    TODO
+    Set membership for a multicast address
+
+    :param handle: UDP handle. Should have been initialized with
+        :c:func:`uv_udp_init`.
+
+    :param multicast_addr: Multicast address to set membership for.
+
+    :param interface_addr: Interface address.
+
+    :param membership: Should be ``UV_JOIN_GROUP`` or ``UV_LEAVE_GROUP``.
+
+    :returns: 0 on success, or an error code < 0 on failure.
 
 .. c:function:: int uv_udp_set_multicast_loop(uv_udp_t* handle, int on)
 
-    TODO
+    Set IP multicast loop flag. Makes multicast packets loop back to
+    local sockets.
+
+    :param handle: UDP handle. Should have been initialized with
+        :c:func:`uv_udp_init`.
+
+    :param on: 1 for on, 0 for off.
+
+    :returns: 0 on success, or an error code < 0 on failure.
 
 .. c:function:: int uv_udp_set_multicast_ttl(uv_udp_t* handle, int ttl)
 
-    TODO
+    Set the multicast ttl.
+
+    :param handle: UDP handle. Should have been initialized with
+        :c:func:`uv_udp_init`.
+
+    :param ttl: 1 through 255.
+
+    :returns: 0 on success, or an error code < 0 on failure.
 
 .. c:function:: int uv_udp_set_multicast_interface(uv_udp_t* handle, const char* interface_addr)
 
-    TODO
+    Set the multicast interface to send or receive data on.
+
+    :param handle: UDP handle. Should have been initialized with
+        :c:func:`uv_udp_init`.
+
+    :param interface_addr: interface address.
+
+    :returns: 0 on success, or an error code < 0 on failure.
 
 .. c:function:: int uv_udp_set_broadcast(uv_udp_t* handle, int on)
 
-    TODO
+    Set broadcast on or off.
+
+    :param handle: UDP handle. Should have been initialized with
+        :c:func:`uv_udp_init`.
+
+    :param on: 1 for on, 0 for off.
+
+    :returns: 0 on success, or an error code < 0 on failure.
 
 .. c:function:: int uv_udp_set_ttl(uv_udp_t* handle, int ttl)
 
-    TODO
+    Set the time to live.
+
+    :param handle: UDP handle. Should have been initialized with
+        :c:func:`uv_udp_init`.
+
+    :param ttl: 1 through 255.
+
+    :returns: 0 on success, or an error code < 0 on failure.
 
 .. c:function:: int uv_udp_send(uv_udp_send_t* req, uv_udp_t* handle, const uv_buf_t bufs[], unsigned int nbufs, const struct sockaddr* addr, uv_udp_send_cb send_cb)
 
-    TODO
+    Send data over the UDP socket. If the socket has not previously been bound
+    with :c:func:`uv_udp_bind` it will be bound to 0.0.0.0
+    (the "all interfaces" IPv4 address) and a random port number.
+
+    :param req: UDP request handle. Need not be initialized.
+
+    :param handle: UDP handle. Should have been initialized with
+        :c:func:`uv_udp_init`.
+
+    :param bufs: List of buffers to send.
+
+    :param nbufs: Number of buffers in `bufs`.
+
+    :param addr: `struct sockaddr_in` or `struct sockaddr_in6` with the
+        address and port of the remote peer.
+
+    :param send_cb: Callback to invoke when the data has been sent out.
+
+    :returns: 0 on success, or an error code < 0 on failure.
 
 .. c:function:: int uv_udp_try_send(uv_udp_t* handle, const uv_buf_t bufs[], unsigned int nbufs, const struct sockaddr* addr)
 
-    TODO
+    Same as :c:func:`uv_udp_send`, but won't queue a send request if it can't
+    be completed immediately.
+
+    :returns: >= 0: number of bytes sent (it matches the given buffer size).
+        < 0: negative error code (``UV_EAGAIN`` is returned when the message
+        can't be sent immediately).
 
 .. c:function:: int uv_udp_recv_start(uv_udp_t* handle, uv_alloc_cb alloc_cb, uv_udp_recv_cb recv_cb)
 
-    TODO
+    Prepare for receiving data. If the socket has not previously been bound
+    with :c:func:`uv_udp_bind` it is bound to 0.0.0.0 (the "all interfaces"
+    IPv4 address) and a random port number.
+
+    :param handle: UDP handle. Should have been initialized with
+        :c:func:`uv_udp_init`.
+
+    :param alloc_cb: Callback to invoke when temporary storage is needed.
+
+    :param recv_cb: Callback to invoke with received data.
+
+    :returns: 0 on success, or an error code < 0 on failure.
 
 .. c:function:: int uv_udp_recv_stop(uv_udp_t* handle)
 
-    TODO
+    Stop listening for incoming datagrams.
+
+    :param handle: UDP handle. Should have been initialized with
+        :c:func:`uv_udp_init`.
+
+    :returns: 0 on success, or an error code < 0 on failure.
 
 .. note:: The :c:type:`uv_handle_t` API functions also apply.
 
