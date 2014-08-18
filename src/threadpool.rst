@@ -9,7 +9,8 @@ in the loop thread. This thread pool is internally used to run al filesystem
 operations, as well as getaddrinfo and getnameinfo requests.
 
 Its default size is 4, but it can be changed at startup time by setting the
-``UV_THREADPOOL_SIZE`` variable to any value (the absolute maximum is 128).
+``UV_THREADPOOL_SIZE`` environment variable to any value (the absolute maximum
+is 128).
 
 The threadpool is global and shared across all event loops.
 
