@@ -4,7 +4,9 @@
 Shared library handling
 =======================
 
-TODO
+libuv prodives cross platform utilities for loading shared libraries and
+retrieving symbols from them, using the following API.
+
 
 Data types
 ----------
@@ -25,17 +27,19 @@ API
 
 .. c:function:: int uv_dlopen(const char* filename, uv_lib_t* lib)
 
-    TODO
+    Opens a shared library. The filename is in utf-8. Returns 0 on success and
+    -1 on error. Call :c:func:`uv_dlerror` to get the error message.
 
 .. c:function:: void uv_dlclose(uv_lib_t* lib)
 
-    TODO
+    Close the shared library.
 
 .. c:function:: uv_dlsym(uv_lib_t* lib, const char* name, void** ptr)
 
-    TODO
+    Retrieves a data pointer from a dynamic library. It is legal for a symbol
+    to map to NULL. Returns 0 on success and -1 if the symbol was not found.
 
 .. c:function:: const char* uv_dlerror(const uv_lib_t* lib)
 
-    TODO
+    Returns the last uv_dlopen() or uv_dlsym() error message.
 
