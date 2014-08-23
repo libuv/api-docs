@@ -169,10 +169,4 @@ API
 
     TODO
 
-.. c:function:: void uv_disable_stdio_inheritance(void)
-
-    TODO
-
-
-
 

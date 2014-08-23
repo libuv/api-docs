@@ -183,6 +183,19 @@ Public members
 API
 ---
 
+.. c:function:: void uv_disable_stdio_inheritance(void)
+
+    Disables inheritance for file descriptors / handles that this process
+    inherited from its parent. The effect is that child processes spawned by
+    this process don't accidentally inherit these handles.
+
+    It is recommended to call this function as early in your program as possible,
+    before the inherited file descriptors can be closed or duplicated.
+
+    .. note:: This function works on a best-effort basis: there is no guarantee
+              that libuv can discover all file descriptors that were inherited.
+              In general it does a better job on Windows than it does on Unix.
+
 .. c:function:: int uv_spawn(uv_loop_t* loop, uv_process_t* handle, const uv_process_options_t* options)
 
     Initializes the process handle and starts the process. If the process is
