@@ -58,6 +58,26 @@ Data types
             } cpu_times;
         } uv_cpu_info_t;
 
+.. c:type:: uv_interface_address_t
+
+    Data type for interface addresses.
+
+    ::
+
+        typedef struct uv_interface_address_s {
+            char* name;
+            char phys_addr[6];
+            int is_internal;
+            union {
+                struct sockaddr_in address4;
+                struct sockaddr_in6 address6;
+            } address;
+            union {
+                struct sockaddr_in netmask4;
+                struct sockaddr_in6 netmask6;
+            } netmask;
+        } uv_interface_address_t;
+
 
 API
 ---
@@ -115,62 +135,69 @@ API
 
 .. c:function:: int uv_interface_addresses(uv_interface_address_t** addresses, int* count)
 
-    TODO
+    Gets address information about the network interfaces on the system. An
+    array of `count` elements is allocated and returned in `addresses`. It must
+    be freed by the user, calling :c:func:`uv_free_interface_addresses`.
 
 .. c:function:: void uv_free_interface_addresses(uv_interface_address_t* addresses, int count)
 
-    TODO
+    Free an array of :c:type:`uv_interface_address_t` which was returned by
+    :c:func:`uv_interface_addresses`.
 
 .. c:function:: void uv_loadavg(double avg[3])
 
-    TODO
+    Gets the load average. See: http://en.wikipedia.org/wiki/Load_(computing)
+
+    .. note:: Returns [0,0,0] on Windows.
 
 .. c:function:: int uv_ip4_addr(const char* ip, int port, struct sockaddr_in* addr)
 
-    TODO
+    Convert a string containing an IPv4 addresses to a binary structure.
 
 .. c:function:: int uv_ip6_addr(const char* ip, int port, struct sockaddr_in6* addr)
 
-    TODO
+    Convert a string containing an IPv6 addresses to a binary structure.
 
 .. c:function:: int uv_ip4_name(const struct sockaddr_in* src, char* dst, size_t size)
 
-    TODO
+    Convert a binary structure containing an IPv4 addres to a string.
 
 .. c:function:: int uv_ip6_name(const struct sockaddr_in6* src, char* dst, size_t size)
 
-    TODO
+    Convert a binary structure containing an IPv6 addres to a string.
 
 .. c:function:: int uv_inet_ntop(int af, const void* src, char* dst, size_t size)
-
-    TODO
-
 .. c:function:: int uv_inet_pton(int af, const char* src, void* dst)
 
-    TODO
+    Cross-platform IPv6-capable implementation of the 'standard' ``inet_ntop()``
+    and ``inet_pton()`` functions. On success they return 0. In case of error
+    the target `dst` pointer is unmodified.
 
 .. c:function:: int uv_exepath(char* buffer, size_t* size)
 
-    TODO
+    Gets the executable path.
 
 .. c:function:: int uv_cwd(char* buffer, size_t* size)
 
-    TODO
+    Gets the current working directory.
 
 .. c:function:: int uv_chdir(const char* dir)
 
-    TODO
+    Changes the current working directory.
 
 .. uint64_t uv_get_free_memory(void)
-
-    TODO
-
 .. c:function:: uint64_t uv_get_total_memory(void)
 
-    TODO
+    Gets memory information (in bytes).
 
 .. c:function:: uint64_t uv_hrtime(void)
 
-    TODO
+    Returns the current high-resolution real time. This is expressed in
+    nanoseconds. It is relative to an arbitrary time in the past. It is not
+    related to the time of day and therefore not subject to clock drift. The
+    primary use is for measuring performance between intervals.
+
+    .. note:: Not every platform can support nanosecond resolution; however,
+              this value will always be in nanoseconds.
 
 
