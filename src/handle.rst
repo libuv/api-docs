@@ -25,6 +25,11 @@ Data types
 
     Type definition for callback passed to :c:func:`uv_close`.
 
+.. c:type:: uv_os_fd_t
+
+    Abstract representation of a file descriptor. On Unix systems this is a
+    `typedef` of `int` and on Windows fa `HANDLE`.
+
 
 Public members
 ^^^^^^^^^^^^^^
@@ -103,6 +108,55 @@ API
 
     Returns the size of the given handle type. Useful for FFI binding writers
     who don't want to know the structure layout.
+
+
+Miscellaneous API functions
+---------------------------
+
+The following API functions take a :c:type:`uv_handle_t` argument but they work
+just for some handle types.
+
+.. c:function:: int uv_send_buffer_size(uv_handle_t* handle, int* value)
+
+    Gets or sets the size of the send buffer that the operating
+    system uses for the socket.
+
+    If `*value` == 0, it will return the current send buffer size,
+    otherwise it will use `*value` to set the new send buffer size.
+
+    This function works for TCP, pipe and UDP handles on Unix and for TCP and
+    UDP handles on Windows.
+
+    .. note:: Linux will set double the size and return double the size
+              of the original set value.
+
+.. c:function:: int uv_recv_buffer_size(uv_handle_t* handle, int* value)
+
+    Gets or sets the size of the receive buffer that the operating
+    system uses for the socket.
+
+    If `*value` == 0, it will return the current receive buffer size,
+    otherwise it will use `*value` to set the new receive buffer size.
+
+    This function works for TCP, pipe and UDP handles on Unix and for TCP and
+    UDP handles on Windows.
+
+    .. note:: Linux will set double the size and return double the size
+              of the original set value.
+
+.. c:function:: int uv_fileno(const uv_handle_t* handle, uv_os_fd_t* fd)
+
+    Gets the platform dependent file descriptor equivalent.
+
+    The following handles are supported: TCP, pipes, TTY, UDP and poll. Passing
+    any other handle type will fail with `UV_EINVAL`.
+
+    If a handle doesn't have an attached file descriptor yet or the handle
+    itself has been closed, this function will return `UV_EBADF`.
+
+    .. warning:: Be very careful when using this function. libuv assumes it's
+                 in control of the file descriptor so any change to it may
+                 lead to malfunction.
 
 
 .. _refcount:
