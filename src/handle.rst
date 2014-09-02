@@ -107,8 +107,8 @@ API
 
 .. _refcount:
 
-Refcounting
------------
+Reference counting
+------------------
 
 The libuv event loop (if run in the default mode) will run until there are no
 active `and` referenced handles left. The user can force the loop to exit early
