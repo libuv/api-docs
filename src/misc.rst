@@ -109,6 +109,10 @@ API
     `base` and `len` members of the uv_buf_t struct. The user is responsible for
     freeing `base` after the uv_buf_t is done. Return struct passed by value.
 
+.. c:function:: char** uv_setup_args(int argc, char** argv)
+
+    Store the program arguments. Required for getting / setting the process title.
+
 .. c:function:: int uv_get_process_title(char* buffer, size_t size)
 
     Gets the title of the current process.
