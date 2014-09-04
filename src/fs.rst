@@ -86,6 +86,29 @@ Data types
             UV_FS_FCHOWN
         } uv_fs_type;
 
+.. c:type:: uv_dirent_t
+
+    Cross platform (reduced) equivalent of ``struct dirent``.
+    Used in :c:func:`uv_fs_readdir_next`.
+
+    ::
+
+        typedef enum {
+            UV_DIRENT_UNKNOWN,
+            UV_DIRENT_FILE,
+            UV_DIRENT_DIR,
+            UV_DIRENT_LINK,
+            UV_DIRENT_FIFO,
+            UV_DIRENT_SOCKET,
+            UV_DIRENT_CHAR,
+            UV_DIRENT_BLOCK
+        } uv_dirent_type_t;
+
+        typedef struct uv_dirent_s {
+            const char* name;
+            uv_dirent_type_t type;
+        } uv_dirent_t;
+
 
 Public members
 ^^^^^^^^^^^^^^
