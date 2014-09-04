@@ -45,6 +45,10 @@ API
     .. note:: It's safe to call this function from any thread. The callback
               will be called on the loop thread.
 
+    .. warning:: libuv will coalesce calls to :c:func:`uv_async_send`, that is,
+                 not every call to it will yield an execution of the callback,
+                 the only guarantee is that it will be called at least once.
+
 .. note:: The :c:type:`uv_handle_t` API functions also apply.
 
 
