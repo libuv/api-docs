@@ -25,11 +25,6 @@ Data types
 
     Type definition for callback passed to :c:func:`uv_close`.
 
-.. c:type:: uv_os_fd_t
-
-    Abstract representation of a file descriptor. On Unix systems this is a
-    `typedef` of `int` and on Windows fa `HANDLE`.
-
 
 Public members
 ^^^^^^^^^^^^^^

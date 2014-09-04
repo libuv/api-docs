@@ -15,6 +15,19 @@ Data types
 
     Buffer data type.
 
+.. c:type:: uv_file
+
+    Cross platform representation of a file handle.
+
+.. c:type:: uv_os_sock_t
+
+    Cross platform representation of a socket handle.
+
+.. c:type:: uv_os_fd_t
+
+    Abstract representation of a file descriptor. On Unix systems this is a
+    `typedef` of `int` and on Windows fa `HANDLE`.
+
 .. c:type:: uv_rusage_t
 
     Data type for resource usage results.

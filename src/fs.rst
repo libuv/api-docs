@@ -20,10 +20,6 @@ Data types
 
     Filesystem request data type.
 
-.. c:type:: uv_file
-
-    Cross platform representation of a file handle.
-
 .. c:type:: uv_stat_t
 
     Portable equivalent of `struct stat`.
