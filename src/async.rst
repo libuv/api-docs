@@ -47,7 +47,9 @@ API
 
     .. warning:: libuv will coalesce calls to :c:func:`uv_async_send`, that is,
                  not every call to it will yield an execution of the callback,
-                 the only guarantee is that it will be called at least once.
+                 the only guarantee is that it will be called at least once. Thus,
+                 calling this function may not wakeup the event loop if it was
+                 already called previously within a short period of time.
 
 .. note:: The :c:type:`uv_handle_t` API functions also apply.
 
