@@ -14,7 +14,7 @@ Data types
 
 .. c:type:: uv_tcp_t
 
-    TCP type.
+    TCP handle type.
 
 
 Public members
@@ -22,7 +22,7 @@ Public members
 
 N/A
 
-.. note:: The :c:type:`uv_stream_t` members also apply.
+.. seealso:: The :c:type:`uv_stream_t` members also apply.
 
 
 API
@@ -36,8 +36,9 @@ API
 
     Open an existing file descriptor or SOCKET as a TCP handle.
 
-    .. note:: The user is responsible for setting the dile descriptor in
-              non-blocking mode.
+    .. note::
+        The user is responsible for setting the file descriptor in
+        non-blocking mode.
 
 .. c:function:: int uv_tcp_nodelay(uv_tcp_t* handle, int enable)
 
@@ -93,6 +94,6 @@ API
     The callback is made when the connection has been established or when a
     connection error happened.
 
-.. note:: The :c:type:`uv_stream_t` API functions also apply.
+.. seealso:: The :c:type:`uv_stream_t` API functions also apply.
 
 

@@ -8,9 +8,9 @@ In libuv errors are negative numbered constants. As a rule of thumb, whenever
 there is a status parameter, or an API functions returns an integer, a negative
 number will imply an error.
 
-.. note:: Implementation detail: on Unix error codes are the negated `errno`, or
-          `-errno`, while on Windows they are defined by libuv to arbitrary
-          negative numbers.
+.. note::
+    Implementation detail: on Unix error codes are the negated `errno` (or `-errno`), while on
+    Windows they are defined by libuv to arbitrary negative numbers.
 
 
 Error constants

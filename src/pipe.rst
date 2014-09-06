@@ -15,7 +15,7 @@ Data types
 
 .. c:type:: uv_pipe_t
 
-    Pipe type.
+    Pipe handle type.
 
 
 Public members
@@ -23,7 +23,7 @@ Public members
 
 N/A
 
-.. note:: The :c:type:`uv_stream_t` members also apply.
+.. seealso:: The :c:type:`uv_stream_t` members also apply.
 
 
 API
@@ -38,22 +38,24 @@ API
 
     Open an existing file descriptor or HANDLE as a pipe.
 
-    .. note:: The user is responsible for setting the dile descriptor in
-              non-blocking mode.
+    .. note::
+        The user is responsible for setting the dile descriptor in non-blocking mode.
 
 .. c:function:: int uv_pipe_bind(uv_pipe_t* handle, const char* name)
 
     Bind the pipe to a file path (Unix) or a name (Windows).
 
-    .. note:: Paths on Unix get truncated to ``sizeof(sockaddr_un.sun_path)``
-              bytes, typically between 92 and 108 bytes.
+    .. note::
+        Paths on Unix get truncated to ``sizeof(sockaddr_un.sun_path)`` bytes, typically between
+        92 and 108 bytes.
 
 .. c:function:: void uv_pipe_connect(uv_connect_t* req, uv_pipe_t* handle, const char* name, uv_connect_cb cb)
 
     Connect to the Unix domain socket or the named pipe.
 
-    .. note:: Paths on Unix get truncated to ``sizeof(sockaddr_un.sun_path)``
-              bytes, typically between 92 and 108 bytes.
+    .. note::
+        Paths on Unix get truncated to ``sizeof(sockaddr_un.sun_path)`` bytes, typically between
+        92 and 108 bytes.
 
 .. c:function:: int uv_pipe_getsockname(const uv_pipe_t* handle, char* buf, size_t* len)
 
@@ -69,7 +71,8 @@ API
     Set the number of pending pipe instance handles when the pipe server is
     waiting for connections.
 
-    .. note:: This setting applies to Windows only.
+    .. note::
+        This setting applies to Windows only.
 
 .. c:function:: int uv_pipe_pending_count(uv_pipe_t* handle)
 .. c:function:: uv_handle_type uv_pipe_pending_type(uv_pipe_t* handle)
@@ -80,6 +83,6 @@ API
     a handle of the given `type`, returned by :c:func:`uv_pipe_pending_type`
     and call ``uv_accept(pipe, handle)``.
 
-.. note:: The :c:type:`uv_stream_t` API functions also apply.
+.. seealso:: The :c:type:`uv_stream_t` API functions also apply.
 
 

@@ -12,7 +12,7 @@ Data types
 
 .. c:type:: uv_getaddrinfo_t
 
-    `getaddrinfo` request data type.
+    `getaddrinfo` request type.
 
 .. c:type:: void (*uv_getaddrinfo_cb)(uv_getaddrinfo_t* req, int status, struct addrinfo* res)
 
@@ -22,7 +22,7 @@ Data types
 
 .. c:type:: uv_getnameinfo_t
 
-    `getnameinfo` request data type.
+    `getnameinfo` request type.
 
 .. c:type:: void (*uv_getnameinfo_cb)(uv_getnameinfo_t* req, int status, const char* hostname, const char* service)
 
@@ -44,7 +44,7 @@ Public members
     Loop that started this getnameinfo request and where completion will be
     reported. Readonly.
 
-.. note:: The :c:type:`uv_req_t` members also apply.
+.. seealso:: The :c:type:`uv_req_t` members also apply.
 
 
 API
@@ -80,6 +80,6 @@ API
     callback will get called sometime in the future with the lookup result.
     Consult `man -s 3 getnameinfo` for more details.
 
-.. note:: The :c:type:`uv_req_t` API functions also apply.
+.. seealso:: The :c:type:`uv_req_t` API functions also apply.
 
 

@@ -62,8 +62,9 @@ Threads
 Thread-local storage
 ^^^^^^^^^^^^^^^^^^^^
 
-.. note:: The total thread-local storage size may be limited. That is, it may
-          not be possible to create many TLS keys.
+.. note::
+    The total thread-local storage size may be limited. That is, it may not be possible to
+    create many TLS keys.
 
 .. c:function:: int uv_key_create(uv_key_t* key)
 .. c:function:: void uv_key_delete(uv_key_t* key)
@@ -124,8 +125,9 @@ Conditions
 Functions return 0 on success or an error code < 0 (unless the
 return type is void, of course).
 
-.. note:: Callers should be prepared to deal with spurious wakeups on
-          :c:func:`uv_cond_wait` and :c:func:`uv_cond_timedwait`.
+.. note::
+    Callers should be prepared to deal with spurious wakeups on :c:func:`uv_cond_wait` and
+    :c:func:`uv_cond_timedwait`.
 
 .. c:function:: int uv_cond_init(uv_cond_t* cond)
 .. c:function:: void uv_cond_destroy(uv_cond_t* cond)
@@ -140,13 +142,14 @@ Barriers
 Functions return 0 on success or an error code < 0 (unless the
 return type is void, of course).
 
-.. note:: :c:func:`uv_barrier_wait` returns a value > 0 to an arbitrarily
-          chosen "serializer" thread to facilitate cleanup, i.e.
+.. note::
+    :c:func:`uv_barrier_wait` returns a value > 0 to an arbitrarily chosen "serializer" thread
+    to facilitate cleanup, i.e.
 
-          ::
+    ::
 
-            if (uv_barrier_wait(&barrier) > 0)
-                uv_barrier_destroy(&barrier);
+        if (uv_barrier_wait(&barrier) > 0)
+            uv_barrier_destroy(&barrier);
 
 .. c:function:: int uv_barrier_init(uv_barrier_t* barrier, unsigned int count)
 .. c:function:: void uv_barrier_destroy(uv_barrier_t* barrier)

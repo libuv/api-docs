@@ -14,7 +14,7 @@ Data types
 
 .. c:type:: uv_tty_t
 
-    TTY type.
+    TTY handle type.
 
 
 Public members
@@ -22,7 +22,7 @@ Public members
 
 N/A
 
-.. note:: The :c:type:`uv_stream_t` members also apply.
+.. seealso:: The :c:type:`uv_stream_t` members also apply.
 
 
 API
@@ -40,7 +40,8 @@ API
     `readable`, specifies if you plan on calling :c:func:`uv_read_start` with
     this stream. stdin is readable, stdout is not.
 
-    .. note:: TTY streams which are not readable have blocking writes.
+    .. note::
+        TTY streams which are not readable have blocking writes.
 
 .. c:function:: int uv_tty_set_mode(uv_tty_t*, int mode)
 
@@ -59,6 +60,6 @@ API
 
     Gets the current Window size. On success it returns 0.
 
-.. note:: The :c:type:`uv_stream_t` API functions also apply.
+.. seealso:: The :c:type:`uv_stream_t` API functions also apply.
 
 

@@ -12,7 +12,7 @@ Data types
 
 .. c:type:: uv_timer_t
 
-    Timer data type.
+    Timer handle type.
 
 .. c:type:: void (*uv_timer_cb)(uv_timer_t* handle)
 
@@ -24,7 +24,7 @@ Public members
 
 N/A
 
-.. note:: The :c:type:`uv_handle_t` members also apply.
+.. seealso:: The :c:type:`uv_handle_t` members also apply.
 
 
 API
@@ -56,16 +56,15 @@ API
 
     Set the repeat value in milliseconds.
 
-    .. note:: If the repeat value is set from a timer callback it
-              does not immediately take effect. If the timer was non-repeating
-              before, it will have been stopped. If it was repeating, then
-              the old repeat value will have been used to schedule the next
-              timeout.
+    .. note::
+        If the repeat value is set from a timer callback it does not immediately take effect.
+        If the timer was non-repeating before, it will have been stopped. If it was repeating,
+        then the old repeat value will have been used to schedule the next timeout.
 
 .. c:function:: uint64_t uv_timer_get_repeat(const uv_timer_t* handle)
 
     Get the timer repeat value.
 
-.. note:: The :c:type:`uv_handle_t` API functions also apply.
+.. seealso:: The :c:type:`uv_handle_t` API functions also apply.
 
 

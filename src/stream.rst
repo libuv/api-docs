@@ -14,7 +14,7 @@ Data types
 
 .. c:type:: uv_stream_t
 
-    Stream type.
+    Stream handle type.
 
 .. c:type:: void (*uv_read_cb)(uv_stream_t* stream, ssize_t nread, const uv_buf_t* buf)
 
@@ -60,7 +60,7 @@ Public members
 
     Contains the amount of queued bytes waiting to be sent. Readonly.
 
-.. note:: The :c:type:`uv_handle_t` members also apply.
+.. seealso:: The :c:type:`uv_handle_t` members also apply.
 
 
 API
@@ -92,7 +92,8 @@ API
     it more than once, it may fail. It is suggested to only call this function once
     per :c:type:`uv_connection_cb` call.
 
-    .. note:: `server` and `client` must be handles running on the same loop.
+    .. note::
+        `server` and `client` must be handles running on the same loop.
 
 .. c:function:: int uv_read_start(uv_stream_t*, uv_alloc_cb alloc_cb, uv_read_cb read_cb)
 
@@ -103,9 +104,10 @@ API
     When `nread` < 0, the `buf` parameter might not point to a valid buffer;
     in that case `buf.len` and `buf.base` are both set to 0.
 
-    .. note:: `nread` might also be 0, which does *not* indicate an error or
-              EOF, it happens when libuv requested a buffer through the alloc
-              callback but then decided that it didn't need that buffer.
+    .. note::
+        `nread` might also be 0, which does *not* indicate an error or EOF, it happens when
+        libuv requested a buffer through the alloc callback but then decided that it didn't
+        need that buffer.
 
 .. c:function:: int uv_read_stop(uv_stream_t*)
 
@@ -140,9 +142,9 @@ API
     Extended write function for sending handles over a pipe. The pipe must be
     initialized with `ipc` == 1.
 
-    .. note:: `send_handle` must be a TCP socket or pipe, which is a server or
-              a connection (listening or connected state). Bound sockets or pipes
-              will be assumed to be servers.
+    .. note::
+        `send_handle` must be a TCP socket or pipe, which is a server or a connection (listening
+        or connected state). Bound sockets or pipes will be assumed to be servers.
 
 .. c:function:: int uv_try_write(uv_stream_t* handle, const uv_buf_t bufs[], unsigned int nbufs)
 
@@ -172,17 +174,18 @@ API
     operation will still be reported through a callback which is made
     asychronously.
 
-    .. warning:: Relying too much on this API is not recommended. It is likely to change
-                 significantly in the future.
+    .. warning::
+        Relying too much on this API is not recommended. It is likely to change
+        significantly in the future.
 
-                 Currently this only works on Windows and only for
-                 :c:type:`uv_pipe_t` handles.
+        Currently this only works on Windows and only for
+        :c:type:`uv_pipe_t` handles.
 
-                 Also libuv currently makes no ordering guarantee when the blocking mode
-                 is changed after write requests have already been submitted. Therefore it is
-                 recommended to set the blocking mode immediately after opening or creating
-                 the stream.
+        Also libuv currently makes no ordering guarantee when the blocking mode
+        is changed after write requests have already been submitted. Therefore it is
+        recommended to set the blocking mode immediately after opening or creating
+        the stream.
 
-.. note:: The :c:type:`uv_handle_t` API functions also apply.
+.. seealso:: The :c:type:`uv_handle_t` API functions also apply.
 
 

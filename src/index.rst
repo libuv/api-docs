@@ -10,7 +10,6 @@ was primarily developed for use by `Node.js`_, but it's also used by Mozilla's
 `Rust language`_, `Luvit`_, `Julia`_, `pyuv`_, and `others`_.
 
 .. warning::
-
     This documentation is not yet complete. You can help by sending
     `pull requests <https://github.com/libuv/api-docs>`_!
 

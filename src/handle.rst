@@ -15,7 +15,7 @@ Data types
 
 .. c:type:: uv_handle_t
 
-    The base libuv handle structure.
+    The base libuv handle type.
 
 .. c:type:: uv_any_handle
 
@@ -64,8 +64,9 @@ API
 
     Returns non-zero if the handle is closing or closed, zero otherwise.
 
-    .. note:: This function should only be used between the initialization of
-              the handle and the arrival of the close callback.
+    .. note::
+        This function should only be used between the initialization of the handle and the
+        arrival of the close callback.
 
 .. c:function:: void uv_close(uv_handle_t* handle, uv_close_cb close_cb)
 
@@ -122,8 +123,8 @@ just for some handle types.
     This function works for TCP, pipe and UDP handles on Unix and for TCP and
     UDP handles on Windows.
 
-    .. note:: Linux will set double the size and return double the size
-              of the original set value.
+    .. note::
+        Linux will set double the size and return double the size of the original set value.
 
 .. c:function:: int uv_recv_buffer_size(uv_handle_t* handle, int* value)
 
@@ -136,8 +137,8 @@ just for some handle types.
     This function works for TCP, pipe and UDP handles on Unix and for TCP and
     UDP handles on Windows.
 
-    .. note:: Linux will set double the size and return double the size
-              of the original set value.
+    .. note::
+        Linux will set double the size and return double the size of the original set value.
 
 .. c:function:: int uv_fileno(const uv_handle_t* handle, uv_os_fd_t* fd)
 
@@ -149,9 +150,9 @@ just for some handle types.
     If a handle doesn't have an attached file descriptor yet or the handle
     itself has been closed, this function will return `UV_EBADF`.
 
-    .. warning:: Be very careful when using this function. libuv assumes it's
-                 in control of the file descriptor so any change to it may
-                 lead to malfunction.
+    .. warning::
+        Be very careful when using this function. libuv assumes it's in control of the file
+        descriptor so any change to it may lead to malfunction.
 
 
 .. _refcount:

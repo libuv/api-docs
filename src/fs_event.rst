@@ -14,7 +14,7 @@ Data types
 
 .. c:type:: uv_fs_event_t
 
-    FS Event handle data type.
+    FS Event handle type.
 
 .. c:type:: void (*uv_fs_event_cb)(uv_fs_event_t* handle, const char* filename, int events, int status)
 
@@ -72,7 +72,7 @@ Public members
 
 N/A
 
-.. note:: The :c:type:`uv_handle_t` members also apply.
+.. seealso:: The :c:type:`uv_handle_t` members also apply.
 
 
 API
@@ -99,6 +99,6 @@ API
     is not big enough UV_ENOBUFS will be returned and len will be set to the
     required size.
 
-.. note:: The :c:type:`uv_handle_t` API functions also apply.
+.. seealso:: The :c:type:`uv_handle_t` API functions also apply.
 
 

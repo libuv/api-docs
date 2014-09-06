@@ -13,7 +13,7 @@ Data types
 
 .. c:type:: uv_check_t
 
-    Check data type.
+    Check handle type.
 
 .. c:type:: void (*uv_check_cb)(uv_check_t* handle)
 
@@ -25,7 +25,7 @@ Public members
 
 N/A
 
-.. note:: The :c:type:`uv_handle_t` members also apply.
+.. seealso:: The :c:type:`uv_handle_t` members also apply.
 
 
 API
@@ -43,6 +43,6 @@ API
 
     Stop the handle, the callback will no longer be called.
 
-.. note:: The :c:type:`uv_handle_t` API functions also apply.
+.. seealso:: The :c:type:`uv_handle_t` API functions also apply.
 
 

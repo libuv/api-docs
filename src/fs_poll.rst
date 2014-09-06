@@ -14,7 +14,7 @@ Data types
 
 .. c:type:: uv_fs_poll_t
 
-    FS Poll data type.
+    FS Poll handle type.
 
 .. c:type:: void (*uv_fs_poll_cb)(uv_fs_poll_t* handle, int status, const uv_stat_t* prev, const uv_stat_t* curr)
 
@@ -36,7 +36,7 @@ Public members
 
 N/A
 
-.. note:: The :c:type:`uv_handle_t` members also apply.
+.. seealso:: The :c:type:`uv_handle_t` members also apply.
 
 
 API
@@ -46,8 +46,9 @@ API
 
     Check the file at `path` for changes every `interval` milliseconds.
 
-    .. note:: For maximum portability, use multi-second intervals. Sub-second
-              intervals will not detect all changes on many file systems.
+    .. note::
+        For maximum portability, use multi-second intervals. Sub-second intervals will not detect
+        all changes on many file systems.
 
 .. c:function:: int uv_fs_poll_stop(uv_fs_poll_t* handle)
 
@@ -61,6 +62,6 @@ API
     is not big enough UV_ENOBUFS will be returned and len will be set to the
     required size.
 
-.. note:: The :c:type:`uv_handle_t` API functions also apply.
+.. seealso:: The :c:type:`uv_handle_t` API functions also apply.
 
 

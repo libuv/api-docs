@@ -31,10 +31,10 @@ are never received. These signals are: `SIGILL`, `SIGABRT`, `SIGFPE`, `SIGSEGV`,
 Calls to raise() or abort() to programmatically raise a signal are
 not detected by libuv; these will not trigger a signal watcher.
 
-.. note:: On Linux SIGRT0 and SIGRT1 (signals 32 and 33) are used by the
-          NPTL pthreads library to manage threads. Installing watchers for those
-          signals will lead to unpredictable behavior and is strongly
-          discouraged. Future versions of libuv may simply reject them.
+.. note::
+    On Linux SIGRT0 and SIGRT1 (signals 32 and 33) are used by the NPTL pthreads library to
+    manage threads. Installing watchers for those signals will lead to unpredictable behavior
+    and is strongly discouraged. Future versions of libuv may simply reject them.
 
 
 Data types
@@ -42,7 +42,7 @@ Data types
 
 .. c:type:: uv_signal_t
 
-    Signal data type.
+    Signal handle type.
 
 .. c:type:: void (*uv_signal_cb)(uv_signal_t* handle, int signum)
 
@@ -56,7 +56,7 @@ Public members
 
     Signal being monitored by this handle. Readonly.
 
-.. note:: The :c:type:`uv_handle_t` members also apply.
+.. seealso:: The :c:type:`uv_handle_t` members also apply.
 
 
 API
@@ -74,6 +74,6 @@ API
 
     Stop the handle, the callback will no longer be called.
 
-.. note:: The :c:type:`uv_handle_t` API functions also apply.
+.. seealso:: The :c:type:`uv_handle_t` API functions also apply.
 
 

@@ -119,7 +119,8 @@ Public members
 
     The PID of the spawned process. It's set after calling :c:func:`uv_spawn`.
 
-.. note:: The :c:type:`uv_handle_t` members also apply.
+.. note::
+    The :c:type:`uv_handle_t` members also apply.
 
 .. c:member:: uv_process_options_t.exit_cb
 
@@ -157,8 +158,9 @@ Public members
     the child process. The convention is that stdio[0] points to stdin,
     fd 1 is used for stdout, and fd 2 is stderr.
 
-    .. note:: On Windows file descriptors greater than 2 are available to the
-              child process only if the child processes uses the MSVCRT runtime.
+    .. note::
+        On Windows file descriptors greater than 2 are available to the child process only if
+        the child processes uses the MSVCRT runtime.
 
 .. c:member:: uv_process_options_t.uid
 .. c:member:: uv_process_options_t.gid
@@ -166,8 +168,9 @@ Public members
     Libuv can change the child process' user/group id. This happens only when
     the appropriate bits are set in the flags fields.
 
-    .. note:: This is not supported on Windows, :c:func:`uv_spawn` will fail
-              and set the error to ``UV_ENOTSUP``.
+    .. note::
+        This is not supported on Windows, :c:func:`uv_spawn` will fail and set the error
+        to ``UV_ENOTSUP``.
 
 .. c:member:: uv_stdio_container_t.flags
 
@@ -192,9 +195,10 @@ API
     It is recommended to call this function as early in your program as possible,
     before the inherited file descriptors can be closed or duplicated.
 
-    .. note:: This function works on a best-effort basis: there is no guarantee
-              that libuv can discover all file descriptors that were inherited.
-              In general it does a better job on Windows than it does on Unix.
+    .. note::
+        This function works on a best-effort basis: there is no guarantee that libuv can discover
+        all file descriptors that were inherited. In general it does a better job on Windows than
+        it does on Unix.
 
 .. c:function:: int uv_spawn(uv_loop_t* loop, uv_process_t* handle, const uv_process_options_t* options)
 
@@ -208,6 +212,6 @@ API
     setgid specified, or not having enough memory to allocate for the new
     process.
 
-.. note:: The :c:type:`uv_handle_t` API functions also apply.
+.. seealso:: The :c:type:`uv_handle_t` API functions also apply.
 
 

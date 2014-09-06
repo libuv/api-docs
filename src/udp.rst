@@ -66,10 +66,10 @@ Data types
     * `flags`: One or more or'ed UV_UDP_* constants. Right now only
       ``UV_UDP_PARTIAL`` is used.
 
-    .. note:: The receive callback will be called with `nread` == 0 and
-              `addr` == NULL when there is nothing to read, and with
-              `nread` == 0 and `addr` != NULL when an empty UDP packet is
-              received.
+    .. note::
+        The receive callback will be called with `nread` == 0 and `addr` == NULL when there is
+        nothing to read, and with `nread` == 0 and `addr` != NULL when an empty UDP packet is
+        received.
 
 .. c:type:: uv_membership
 
@@ -99,7 +99,7 @@ Public members
 
     UDP handle where this send request is taking place.
 
-.. note:: The :c:type:`uv_handle_t` members also apply.
+.. seealso:: The :c:type:`uv_handle_t` members also apply.
 
 
 API
@@ -277,6 +277,6 @@ API
 
     :returns: 0 on success, or an error code < 0 on failure.
 
-.. note:: The :c:type:`uv_handle_t` API functions also apply.
+.. seealso:: The :c:type:`uv_handle_t` API functions also apply.
 
 

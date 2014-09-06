@@ -20,7 +20,7 @@ Data types
 
 .. c:type:: uv_work_t
 
-    Work request data type.
+    Work request type.
 
 .. c:type:: void (*uv_work_cb)(uv_work_t* req)
 
@@ -42,7 +42,7 @@ Public members
     Loop that started this request and where completion will be reported.
     Readonly.
 
-.. note:: The :c:type:`uv_req_t` members also apply.
+.. seealso:: The :c:type:`uv_req_t` members also apply.
 
 
 API
@@ -56,6 +56,6 @@ API
 
     This request can be cancelled with :c:func:`uv_cancel`.
 
-.. note:: The :c:type:`uv_req_t` API functions also apply.
+.. seealso:: The :c:type:`uv_req_t` API functions also apply.
 
 

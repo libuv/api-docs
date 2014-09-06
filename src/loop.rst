@@ -20,7 +20,7 @@ Data types
 
     Mode used to run the loop with :c:func:`uv_run`.
 
-    .. code-block:: c
+    ::
 
         typedef enum {
             UV_RUN_DEFAULT = 0,
@@ -100,9 +100,9 @@ API
     poll in one thread and run the event loop's callbacks in another see
     test/test-embed.c for an example.
 
-    .. note:: Embedding a kqueue fd in another kqueue pollset doesn't work on
-              all platforms. It's not an error to add the fd but it never
-              generates events.
+    .. note::
+        Embedding a kqueue fd in another kqueue pollset doesn't work on all platforms. It's not
+        an error to add the fd but it never generates events.
 
 .. c:function:: int uv_backend_timeout(const uv_loop_t* loop)
 
@@ -119,7 +119,8 @@ API
     Don't make assumptions about the starting point, you will only get
     disappointed.
 
-    .. note:: Use `uv_hrtime()` if you need sub-millisecond granularity.
+    .. note::
+        Use :c:func:`uv_hrtime` if you need sub-millisecond granularity.
 
 .. c:function:: void uv_update_time(uv_loop_t* loop)
 

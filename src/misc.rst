@@ -146,8 +146,8 @@ API
 
     Gets the resource usage measures for the current process.
 
-    .. note:: On Windows not all fields are set, the unsupported fields are
-              filled with zeroes.
+    .. note::
+        On Windows not all fields are set, the unsupported fields are filled with zeroes.
 
 .. c:function:: int uv_cpu_info(uv_cpu_info_t** cpu_infos, int* count)
 
@@ -173,7 +173,8 @@ API
 
     Gets the load average. See: http://en.wikipedia.org/wiki/Load_(computing)
 
-    .. note:: Returns [0,0,0] on Windows.
+    .. note::
+        Returns [0,0,0] on Windows (i.e., it's not implemented).
 
 .. c:function:: int uv_ip4_addr(const char* ip, int port, struct sockaddr_in* addr)
 
@@ -222,7 +223,8 @@ API
     related to the time of day and therefore not subject to clock drift. The
     primary use is for measuring performance between intervals.
 
-    .. note:: Not every platform can support nanosecond resolution; however,
-              this value will always be in nanoseconds.
+    .. note::
+        Not every platform can support nanosecond resolution; however, this value will always
+        be in nanoseconds.
 
 

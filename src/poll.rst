@@ -27,8 +27,9 @@ active poll handle. This can cause the handle to report an error,
 but it might also start polling another socket. However the fd can be safely
 closed immediately after a call to :c:func:`uv_poll_stop` or :c:func:`uv_close`.
 
-.. note:: On windows only sockets can be polled with poll handles. On Unix any file
-          descriptor that would be accepted by poll(2) can be used.
+.. note::
+    On windows only sockets can be polled with poll handles. On Unix any file
+    descriptor that would be accepted by poll(2) can be used.
 
 
 Data types
@@ -36,7 +37,7 @@ Data types
 
 .. c:type:: uv_poll_t
 
-    Poll data type.
+    Poll handle type.
 
 .. c:type:: void (*uv_poll_cb)(uv_poll_t* handle, int status, int events)
 
@@ -59,7 +60,7 @@ Public members
 
 N/A
 
-.. note:: The :c:type:`uv_handle_t` members also apply.
+.. seealso:: The :c:type:`uv_handle_t` members also apply.
 
 
 API
@@ -87,14 +88,14 @@ API
     anyway, the callback *may* be called reporting an error status, but this
     is **not** guaranteed.
 
-    .. note:: Calling :c:func:`uv_poll_start` on a handle that is already
-              active is fine. Doing so will update the events mask that is
-              being watched for.
+    .. note::
+        Calling :c:func:`uv_poll_start` on a handle that is already active is fine. Doing so
+        will update the events mask that is being watched for.
 
 .. c:function:: int uv_poll_stop(uv_poll_t* poll)
 
     Stop polling the file descriptor, the callback will no longer be called.
 
-.. note:: The :c:type:`uv_handle_t` API functions also apply.
+.. seealso:: The :c:type:`uv_handle_t` API functions also apply.
 
 

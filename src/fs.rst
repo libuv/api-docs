@@ -18,7 +18,7 @@ Data types
 
 .. c:type:: uv_fs_t
 
-    Filesystem request data type.
+    Filesystem request type.
 
 .. c:type:: uv_stat_t
 
@@ -137,7 +137,7 @@ Public members
     Stores the result of :c:func:`uv_fs_readlink` and serves as an alias to
     `statbuf`.
 
-.. note:: The :c:type:`uv_req_t` members also apply.
+.. seealso:: The :c:type:`uv_req_t` members also apply.
 
 
 API
@@ -172,7 +172,8 @@ API
 
     Equivalent to ``mkdir(2)``.
 
-    .. note:: `mode` is currently ignored on Windows.
+    .. note::
+        `mode` is currently not implemented on Windows.
 
 .. c:function:: int uv_fs_mkdtemp(uv_loop_t* loop, uv_fs_t* req, const char* tpl, uv_fs_cb cb)
 
@@ -234,13 +235,14 @@ API
 
     Equivalent to ``symlink(2)``.
 
-    .. note:: On Windows the `flags` parameter can be specified to control how
-              the symlink will be created:
+    .. note::
+        On Windows the `flags` parameter can be specified to control how the symlink will
+        be created:
 
-              * ``UV_FS_SYMLINK_DIR``: indicates that `path` points to a directory.
+            * ``UV_FS_SYMLINK_DIR``: indicates that `path` points to a directory.
 
-              * ``UV_FS_SYMLINK_JUNCTION``: request that the symlink is created
-                using junktion points.
+            * ``UV_FS_SYMLINK_JUNCTION``: request that the symlink is created
+              using junktion points.
 
 .. c:function:: int uv_fs_readlink(uv_loop_t* loop, uv_fs_t* req, const char* path, uv_fs_cb cb)
 
@@ -251,7 +253,8 @@ API
 
     Equivalent to ``(f)chown(2)``.
 
-    .. note:: These functions are not implemented on Windows.
+    .. note::
+        These functions are not implemented on Windows.
 
-.. note:: The :c:type:`uv_req_t` API functions also apply.
+.. seealso:: The :c:type:`uv_req_t` API functions also apply.
 
