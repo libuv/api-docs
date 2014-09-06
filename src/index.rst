@@ -44,6 +44,12 @@ Downloads
 libuv can be downloaded from `here <http://dist.libuv.org/dist/>`_.
 
 
+Installation
+------------
+
+Installation instructions can be found on `the README <https://github.com/joyent/libuv/blob/master/README.md>`_.
+
+
 Documentation
 -------------
 
